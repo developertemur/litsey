@@ -1,0 +1,51 @@
+﻿@model litsey.Models.Student
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>O'chirish</h1>
+
+<h3>Haqiqatdan ham o'chirmoqchimisiz ?</h3>
+<div>
+    <h4>O'quvchilar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nomi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nomi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sharif)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sharif)
+        </dd>
+         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manzil)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manzil)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Group)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Group.Nomi)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="O'chirish" class="btn btn-danger" /> |
+        <a asp-action="Index">Orqaga qaytish</a>
+    </form>
+</div>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<litsey.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>O'quvchilar</h1>
+
+<p>
+    <a asp-action="Create">Yangi qo'shish</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nomi)
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.Surname)*@
+                Familya
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sharif)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Manzil)
+            </th>
+            <th>
+                @*Html.DisplayNameFor(model => model.Group)*@
+                    Guruh
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nomi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sharif)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manzil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.Nomi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Tahrirlash</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Malumotlar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">O'chirish</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,84 @@
+﻿@model litsey.Models.Mark
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Tahrirlash</h1>
+
+<h4>Baholash reytingi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>
+                <span asp-validation-for="StudentId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S1" class="control-label"></label>
+                <input asp-for="S1" class="form-control" />
+                <span asp-validation-for="S1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S2" class="control-label"></label>
+                <input asp-for="S2" class="form-control" />
+                <span asp-validation-for="S2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S3" class="control-label"></label>
+                <input asp-for="S3" class="form-control" />
+                <span asp-validation-for="S3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="S4" class="control-label"></label>
+                <input asp-for="S4" class="form-control" />
+                <span asp-validation-for="S4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Q1" class="control-label"></label>
+                <input asp-for="Q1" class="form-control" />
+                <span asp-validation-for="Q1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Q2" class="control-label"></label>
+                <input asp-for="Q2" class="form-control" />
+                <span asp-validation-for="Q2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Q3" class="control-label"></label>
+                <input asp-for="Q3" class="form-control" />
+                <span asp-validation-for="Q3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Q4" class="control-label"></label>
+                <input asp-for="Q4" class="form-control" />
+                <span asp-validation-for="Q4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Olimpiada" class="control-label"></label>
+                <input asp-for="Olimpiada" class="form-control" />
+                <span asp-validation-for="Olimpiada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tanlov" class="control-label"></label>
+                <input asp-for="Tanlov" class="form-control" />
+                <span asp-validation-for="Tanlov" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Saqlash" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Orqaga qaytish</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

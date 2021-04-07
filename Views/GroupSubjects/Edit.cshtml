@@ -1,0 +1,39 @@
+﻿@model litsey.Models.GroupSubject
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Tahrirlash</h1>
+
+<h4>Guruhlarga O'tiladigan Fanlar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class="form-control" asp-items="ViewBag.GroupId"></select>
+                <span asp-validation-for="GroupId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubjectId" class="control-label"></label>
+                <select asp-for="SubjectId" class="form-control" asp-items="ViewBag.SubjectId"></select>
+                <span asp-validation-for="SubjectId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Saqlash" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Orqaga qaytish</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

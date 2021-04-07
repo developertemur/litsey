@@ -1,0 +1,42 @@
+﻿@model litsey.Models.Mark
+
+@{
+    ViewData["Title"] = "Create";
+    var db = new litseydbContext();
+    
+}
+
+<h1>Yangi qo'shish</h1>
+
+<h4>Baholar reytingi</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentId" class="control-label"></label>
+                <!--<select asp-for="StudentId" class="form-control" asp-items="ViewBag.StudentId"></select>-->
+                <select name="Mark.StudentId" class="form-control">
+                @foreach (var stu in db.Students)
+                {
+                    <option value="@stu.Id">@db.Groups.Find(stu.GroupId).Nomi @stu.Surname @stu.Nomi @stu.Sharif  </option>
+                }
+                </select>
+
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Yangi qo'shish" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Orqaga qaytish</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,33 @@
+﻿@model litsey.Models.GroupSubject
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>O'chirish</h1>
+
+<h3>Haqiqatdan ham o'chirmoqchimisiz ?</h3>
+<div>
+    <h4>Guruhlarga o'tiladigan fanlar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Group)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Group.Nomi)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subject.Nomi)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="O'chirish" class="btn btn-danger" /> |
+        <a asp-action="Index">Orqaga qaytish</a>
+    </form>
+</div>

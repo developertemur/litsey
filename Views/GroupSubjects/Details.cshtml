@@ -1,0 +1,30 @@
+﻿@model litsey.Models.GroupSubject
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Malumotlar</h1>
+
+<div>
+    <h4>Guruhlarga O'tiladigan Fanlar</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Group)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Group.Nomi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subject.Nomi)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Tahrirlash</a> |
+    <a asp-action="Index">Orqaga qaytish</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@model litsey.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Yangi qo'shish</h1>
+
+<h4>O'quvchilar</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nomi" class="control-label"></label>
+                <input asp-for="Nomi" class="form-control" />
+                <span asp-validation-for="Nomi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Surname" class="control-label"></label>
+                <input asp-for="Surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sharif" class="control-label"></label>
+                <input asp-for="Sharif" class="form-control" />
+                <span asp-validation-for="Sharif" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manzil" class="control-label"></label>
+                <input asp-for="Manzil" class="form-control" />
+                <span asp-validation-for="Manzil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GroupId" class="control-label"></label>
+                <select asp-for="GroupId" class ="form-control" asp-items="ViewBag.GroupId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Yangi qo'shish" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Orqaga qaytish</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

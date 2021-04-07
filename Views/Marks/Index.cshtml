@@ -1,0 +1,105 @@
+﻿@model IEnumerable<litsey.Models.Mark>
+@using litsey.Models;
+@{
+    ViewData["Title"] = "Index";
+    var db = new litseydbContext();
+    
+}
+
+<h1>Baholar reytingi</h1>
+
+<p>
+    <a asp-action="Create">Yangi qo'shish</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*Html.DisplayNameFor(model => model.Student)*@
+                O'quvchi
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.S1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.S2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.S3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.S4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Q4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Olimpiada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tanlov)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @{
+                    long? gid = item.Student.GroupId;
+                    var grel = db.Groups.Find(gid).Nomi;
+                    string satr = grel + " " + item.Student.Surname + " " + item.Student.Nomi + " " + item.Student.Sharif;
+
+                }
+                @Html.DisplayFor(modelItem => satr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.S1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.S2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.S3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.S4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Q4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Olimpiada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tanlov)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Tahrirlash</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Malumotlar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">O'chirish</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

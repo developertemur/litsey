@@ -1,0 +1,41 @@
+﻿@model IEnumerable<litsey.Models.GroupSubject>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Guruhlarga O'tiladigan Fanlar</h1>
+
+<p>
+    <a asp-action="Create">Yangi qo'shish</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Group)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Group.Nomi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.Nomi)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Tahrirlash</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Malumotlar</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">O'chirish</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
